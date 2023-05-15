@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">Veterinaria</string>
+    <string name="title_login">Iniciar sesión</string>
+    <string name="Email">Correo</string>
+    <string name="contraseña">Contraseña</string>
+    <string name="text_btn_login">Ingresar</string>
+    <string name="logo_descripcion_login">Logo descripcion</string>
+    <string name="correo">Ingresa tu correo electrónico</string>
+    <string name="ingresa_contraseña">Ingresa una contraseña</string>
+    <string name="nombre">Nombre</string>
+    <string name="apellido">Apellido</string>
+    <string name="crear_cuenta">Crear cuenta</string>
+    <string name="new_account">¿Aun no tienes una cuenta?</string>
+    <string name="mascotas">MASCOTAS REGISTRADAS</string>
+    <string name="añade_mascota">REGISTRAR MASCOTA</string>
+    <string name="nombre_mascota">Nombre de tu mascota</string>
+    <string name="edad_mascota">Edad</string>
+    <string name="especie">Especifica la especie de tu mascota</string>
+    <string name="vacunas">Vacunas de tu mascota</string>
+    <string name="register">REGISTRAR</string>
+    <string name="register_exit">¡FUE REGISTRADO CON ÉXITO!</string>
+    <string name="users_name">Nombre de usuario</string>
+    <string name="Confirmar">Confirmar contraseña</string>
+
+</resources>
