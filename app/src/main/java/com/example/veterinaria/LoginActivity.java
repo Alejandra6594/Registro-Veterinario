@@ -11,8 +11,6 @@ import android.widget.Toast;
 
 public class LoginActivity extends Activity implements View.OnClickListener{
     Button btn_login, btn_register;
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,11 +21,7 @@ public class LoginActivity extends Activity implements View.OnClickListener{
 
         btn_register=findViewById(R.id.btn_register);
         btn_register.setOnClickListener(this);
-
-
     }
-
-
     public void onClick(View view) {
         if (view==btn_login){
             Intent intent = new Intent(LoginActivity.this,ViewMainAnimalsActivity.class);

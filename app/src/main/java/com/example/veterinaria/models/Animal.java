@@ -2,22 +2,26 @@ package com.example.veterinaria.models;
 
 public class Animal {
     private String nombre;
-    private int edad;
+    private String edad;
     private String especie;
-    private String vacuna;
+    private String raza;
+
+    private String genero;
 
 //constructor
     public Animal() {
         this.nombre = "nombre";
-        this.edad = 0;
+        this.edad = "0";
         this.especie = "especie";
-        this.vacuna = "vacuna";
+        this.raza = "raza";
+        this.genero = "genero";
     }
-    public Animal(String nombre, int edad, String especie, String vacuna) {
+    public Animal(String nombre, String edad, String especie, String raza, String genero) {
         this.nombre = nombre;
         this.edad = edad;
         this.especie = especie;
-        this.vacuna = vacuna;
+        this.raza = raza;
+        this.genero = genero;
     }
 
     public String getNombre() {
@@ -28,11 +32,11 @@ public class Animal {
         this.nombre = nombre;
     }
 
-    public int getEdad() {
+    public String getEdad() {
         return edad;
     }
 
-    public void setEdad(int edad) {
+    public void setEdad(String edad) {
         this.edad = edad;
     }
 
@@ -44,13 +48,17 @@ public class Animal {
         this.especie = especie;
     }
 
-    public String getVacuna() {
-        return vacuna;
+    public String getRaza() {
+        return raza;
     }
 
-    public void setVacuna(String vacuna) {
-        this.vacuna = vacuna;
+    public void setRaza(String raza) {
+        this.raza = raza;
     }
+
+    public String getGenero(){return genero;}
+
+    public void setGenero(String genero){this.genero = genero;}
 
 
 

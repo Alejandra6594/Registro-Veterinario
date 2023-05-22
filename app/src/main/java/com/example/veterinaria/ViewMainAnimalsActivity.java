@@ -18,7 +18,7 @@ import java.util.List;
 public class ViewMainAnimalsActivity extends AppCompatActivity implements View.OnClickListener {
     Button btn_newAnimal;
     ListView animalsListView;
-    public static List<Animal> animalList;
+    List<Animal> animalList;
     AnimalListAdapter animalAdapter;
 
 
@@ -36,18 +36,26 @@ public class ViewMainAnimalsActivity extends AppCompatActivity implements View.O
         Intent animalRegister = getIntent();
         String nameAnimal = animalRegister.getStringExtra("nameAnimal");
         String ageAnimal = animalRegister.getStringExtra("ageAnimal");
+        String razaAnimal = animalRegister.getStringExtra("razaAnimal");
+        String especieAnimal = animalRegister.getStringExtra("especieAnimal");
+        String generoAnimal = animalRegister.getStringExtra("generoAnimal");
+        /*animalList.add(new Animal("Chau", "4", "Perro", "Doberman", "Hembra"));*/
 
-        animalList.add(new Animal("Chau", 4, "Perro", "Antirrabica"));
-        animalList.add(new Animal("Vale", 3, "Conejo", "Antirrabica"));
-        animalList.add(new Animal("Chicharron con chile", 5, "Gato", "Antirrabica"));
+       /* animalList.add(new Animal());*/
 
+        Animal data = getAnimalRegister(nameAnimal, ageAnimal, razaAnimal, especieAnimal, generoAnimal);
+        animalList.add(data);
         animalAdapter = new AnimalListAdapter(this, animalList);
         animalsListView.setAdapter(animalAdapter);
-        Toast.makeText(this, "vista cargada", Toast.LENGTH_SHORT).show();
+       /* Toast.makeText(this, "vista cargada", Toast.LENGTH_SHORT).show();*/
 
 
     }
 
+    public  Animal getAnimalRegister(String nameAnimal, String ageAnimal, String razaAnimal, String especieAnimal, String generoAnimal){
+
+        return new Animal(nameAnimal, ageAnimal, razaAnimal,especieAnimal, generoAnimal);
+    }
 
     @Override
     public void onClick(View view) {

@@ -14,12 +14,13 @@
     <string name="mascotas">MASCOTAS REGISTRADAS</string>
     <string name="añade_mascota">REGISTRAR MASCOTA</string>
     <string name="nombre_mascota">Nombre de tu mascota</string>
-    <string name="edad_mascota">Edad</string>
+    <string name="edad_mascota">Edad de tu mascota</string>
     <string name="especie">Especifica la especie de tu mascota</string>
     <string name="vacunas">Vacunas de tu mascota</string>
     <string name="register">REGISTRAR</string>
     <string name="register_exit">¡FUE REGISTRADO CON ÉXITO!</string>
     <string name="users_name">Nombre de usuario</string>
     <string name="Confirmar">Confirmar contraseña</string>
+    <string name="raza">Raza de tu mascota</string>
 
 </resources>

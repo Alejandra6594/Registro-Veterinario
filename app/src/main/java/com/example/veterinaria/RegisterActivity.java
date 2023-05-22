@@ -33,7 +33,6 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         pwsConfirm = pwsConfirmInput.getText().toString().trim();
 
     }
-
     @Override
     public void onClick(View view) {
         if (view==btnNewAccount){

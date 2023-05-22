@@ -15,20 +15,21 @@ import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.example.veterinaria.models.Animal;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class RegisterAnimalActivity extends AppCompatActivity implements View.OnClickListener, AdapterView.OnItemSelectedListener {
-    Button btn_insertAnimal;
+    Button btn_insertAnimal, btnMacho, btnHembra;
     ImageButton btn_regresar;
     EditText nameAnimalInput;
     EditText ageAnimalInput;
-    Spinner spinnerTypesAnimals;
-    String selectedType, nameAnimal;
-    Integer ageAnimal;
 
+    EditText razaAnimal;
+    Spinner spinnerTypesAnimals;
+    String selectedType, nameAnimal, especie;
+    Integer ageAnimal;
+    String genero="Macho";
+    ViewMainAnimalsActivity mainAnimals;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,8 +50,20 @@ public class RegisterAnimalActivity extends AppCompatActivity implements View.On
         spinnerTypesAnimals.setOnItemSelectedListener(this);
 
         nameAnimalInput = findViewById(R.id.edit_name_animals);
-        ageAnimalInput = findViewById(R.id.edit_age_animals);
+        ageAnimalInput = findViewById(R.id.edit_name_animals);
         //capturando datos de los inputs
+
+        btnMacho = findViewById(R.id.btn_macho);
+        btnMacho.setOnClickListener(this);
+
+        btnHembra = findViewById(R.id.btn_hembra);
+        btnHembra.setOnClickListener(this);
+
+        razaAnimal = findViewById(R.id.edit_raza_animals);
+        razaAnimal.setOnClickListener(this);
+
+        mainAnimals = new ViewMainAnimalsActivity();
+
 
     }
 
@@ -95,23 +108,34 @@ public class RegisterAnimalActivity extends AppCompatActivity implements View.On
                     Toast.LENGTH_SHORT).show();
         }
     }
-
     @Override
     public void onClick(View view) {
         if(view==btn_insertAnimal){
             String name = nameAnimalInput.getText().toString().trim();
-            Integer age = parseInt(ageAnimalInput.getText().toString().trim());
-
+            String age = ageAnimalInput.getText().toString().trim();
+            String raza = razaAnimal.getText().toString().trim();
             Intent intent = new Intent(RegisterAnimalActivity.this,InfoSuccessRegisterActivity.class);
-            intent.putExtra("nameAnimal", nameAnimalInput.getText().toString());
-            intent.putExtra("ageAnimal",ageAnimalInput.getText().toString());
+            intent.putExtra("nameAnimal", name);
+            intent.putExtra("ageAnimal",age);
+            intent.putExtra("razaAnimal",raza);
+            intent.putExtra("generoAnimal",genero);
+            intent.putExtra("especieAnimal",especie);
+            /*mainAnimals.getAnimalRegister();*/
             startActivity(intent);
             finish();
+            /*Toast.makeText(this, "especie " + especie, Toast.LENGTH_SHORT).show();*/
         }
         if(view==btn_regresar){
             Intent intent = new Intent(RegisterAnimalActivity.this,ViewMainAnimalsActivity.class);
             startActivity(intent);
             finish();
+        }
+
+        if(view==btnMacho){
+            genero="Macho";
+        }
+        if(view==btnHembra){
+            genero="Hembra";
         }
     }
     //cuando hay un cambio se ejecuta todo lo de adentro
@@ -120,10 +144,7 @@ public class RegisterAnimalActivity extends AppCompatActivity implements View.On
         //guardamos el valor del elemento seleccionado del spinner en la variable selectedType
          selectedType = parent.getItemAtPosition(pos).toString();
         //cada vez que la variable selectedType cambie ejecutamos la funcion loadVaccinesTypes
-        loadVaccinesTypes(selectedType);
-            /*Toast.makeText(parent.getContext(),
-                    "OnItemSelectedListener : " + parent.getItemAtPosition(pos).toString(),
-                    Toast.LENGTH_SHORT).show();*/
+        especie = selectedType;
     }
 
 
