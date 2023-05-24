@@ -39,9 +39,9 @@ ImageView atras;
 
         atras = view.findViewById(R.id.btn_atras);
         atras.setOnClickListener(new View.OnClickListener() {
-            @Override
+
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity(),DetailAnimalsActivity.class);
+                Intent intent = new Intent(getActivity(),ViewMainAnimalsActivity.class);
                 startActivity(intent);
             }
         });
