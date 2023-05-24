@@ -15,6 +15,9 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     Button btnNewAccount;
     EditText nameInput, emailInput, pwsInput, pwsConfirmInput;
     String name, email, pws, pwsConfirm;
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,6 +41,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         if (view==btnNewAccount){
             Toast.makeText(this, "Usuario registrado con exito!", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(RegisterActivity.this,LoginActivity.class);
+
             startActivity(intent);
             finish();
 

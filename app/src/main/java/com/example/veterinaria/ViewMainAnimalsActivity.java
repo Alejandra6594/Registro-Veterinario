@@ -5,9 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.example.veterinaria.Adapters.AnimalListAdapter;
 import com.example.veterinaria.models.Animal;
@@ -16,11 +16,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ViewMainAnimalsActivity extends AppCompatActivity implements View.OnClickListener {
-    Button btn_newAnimal;
-    ListView animalsListView;
-    List<Animal> animalList;
-    AnimalListAdapter animalAdapter;
+    Button btn_newAnimal,  btn_update;
 
+    List<Animal> animalList = null;
+    AnimalListAdapter animalAdapter;
 
 
     @Override
@@ -31,36 +30,43 @@ public class ViewMainAnimalsActivity extends AppCompatActivity implements View.O
         btn_newAnimal=findViewById(R.id.btn_add_animals);
         btn_newAnimal.setOnClickListener(this);
 
-        animalsListView=findViewById(R.id.animal_list_view);
+        btn_update=findViewById(R.id.updateBtn);
+        btn_update.setOnClickListener(this);
+
         animalList = new ArrayList<>();
-        Intent animalRegister = getIntent();
+
+        getAnimalRegister();
+        animalAdapter = new AnimalListAdapter(this, animalList);
+        ListView animalsListView=findViewById(R.id.animal_list_view);
+        animalsListView.setAdapter(animalAdapter);
+    }
+
+    public void getAnimalRegister(){
+        /*Intent animalRegister = getIntent();
         String nameAnimal = animalRegister.getStringExtra("nameAnimal");
         String ageAnimal = animalRegister.getStringExtra("ageAnimal");
         String razaAnimal = animalRegister.getStringExtra("razaAnimal");
         String especieAnimal = animalRegister.getStringExtra("especieAnimal");
-        String generoAnimal = animalRegister.getStringExtra("generoAnimal");
-        /*animalList.add(new Animal("Chau", "4", "Perro", "Doberman", "Hembra"));*/
+        String generoAnimal = animalRegister.getStringExtra("generoAnimal");*/
 
-       /* animalList.add(new Animal());*/
-
-        Animal data = getAnimalRegister(nameAnimal, ageAnimal, razaAnimal, especieAnimal, generoAnimal);
-        animalList.add(data);
-        animalAdapter = new AnimalListAdapter(this, animalList);
-        animalsListView.setAdapter(animalAdapter);
-       /* Toast.makeText(this, "vista cargada", Toast.LENGTH_SHORT).show();*/
-
-
+        animalList.add(new Animal("chau", "3", "perro", "doberman", "macho"));
+        animalList.add(new Animal("huevo", "3", "gato", "cruza", "macho"));
+        animalList.add(new Animal("chimole", "2", "perro", "doberman", "hembra"));
+        animalList.add(new Animal("Coqueta", "5", "gato", "cruza", "hembra"));
+        animalList.add(new Animal("Capricho", "3", "conejo", "cruza", "macho"));
     }
 
-    public  Animal getAnimalRegister(String nameAnimal, String ageAnimal, String razaAnimal, String especieAnimal, String generoAnimal){
-
-        return new Animal(nameAnimal, ageAnimal, razaAnimal,especieAnimal, generoAnimal);
-    }
 
     @Override
     public void onClick(View view) {
         if(view==btn_newAnimal){
             Intent intent = new Intent(ViewMainAnimalsActivity.this,RegisterAnimalActivity.class);
+            startActivity(intent);
+            finish();
+        }
+
+        if(view==btn_update){
+            Intent intent = new Intent(ViewMainAnimalsActivity.this,DetailAnimalsActivity.class);
             startActivity(intent);
             finish();
         }

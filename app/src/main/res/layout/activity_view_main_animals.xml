@@ -61,6 +61,17 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.925" />
 
+            <Button
+                android:id="@+id/updateBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="56dp"
+                android:layout_marginBottom="68dp"
+                android:background="@drawable/input_registers"
+                android:text="DETALLES"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
             <ListView
                 android:id="@+id/animal_list_view"
                 android:layout_width="0dp"
@@ -70,6 +81,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.111" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </RelativeLayout>

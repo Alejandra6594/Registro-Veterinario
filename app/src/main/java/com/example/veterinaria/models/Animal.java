@@ -1,6 +1,11 @@
 package com.example.veterinaria.models;
 
-public class Animal {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+import androidx.annotation.NonNull;
+
+public class Animal implements Parcelable {
     private String nombre;
     private String edad;
     private String especie;
@@ -61,5 +66,13 @@ public class Animal {
     public void setGenero(String genero){this.genero = genero;}
 
 
+    @Override
+    public int describeContents() {
+        return 0;
+    }
 
+    @Override
+    public void writeToParcel(@NonNull Parcel parcel, int i) {
+
+    }
 }

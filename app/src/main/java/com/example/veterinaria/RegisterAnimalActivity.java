@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -15,6 +16,8 @@ import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.example.veterinaria.models.Animal;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,13 +26,13 @@ public class RegisterAnimalActivity extends AppCompatActivity implements View.On
     ImageButton btn_regresar;
     EditText nameAnimalInput;
     EditText ageAnimalInput;
-
+    List<Animal> animalList;
     EditText razaAnimal;
     Spinner spinnerTypesAnimals;
     String selectedType, nameAnimal, especie;
     Integer ageAnimal;
     String genero="Macho";
-    ViewMainAnimalsActivity mainAnimals;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,7 +65,6 @@ public class RegisterAnimalActivity extends AppCompatActivity implements View.On
         razaAnimal = findViewById(R.id.edit_raza_animals);
         razaAnimal.setOnClickListener(this);
 
-        mainAnimals = new ViewMainAnimalsActivity();
 
 
     }
@@ -108,22 +110,27 @@ public class RegisterAnimalActivity extends AppCompatActivity implements View.On
                     Toast.LENGTH_SHORT).show();
         }
     }
+
+    public void register(){
+        String name = nameAnimalInput.getText().toString().trim();
+        String age = ageAnimalInput.getText().toString().trim();
+        String raza = razaAnimal.getText().toString().trim();
+        Intent intent = new Intent(RegisterAnimalActivity.this,InfoSuccessRegisterActivity.class);
+        intent.putExtra("nameAnimal", name);
+        intent.putExtra("ageAnimal",age);
+        intent.putExtra("razaAnimal",raza);
+        intent.putExtra("generoAnimal",genero);
+        intent.putExtra("especieAnimal",especie);
+        /*Animal newAnimal = new Animal(name, age, raza, especie, genero);
+        ViewMainAnimalsActivity viewMain = new ViewMainAnimalsActivity();
+        viewMain.getAnimalRegister(newAnimal);*/
+        startActivity(intent);
+        finish();
+    }
     @Override
     public void onClick(View view) {
         if(view==btn_insertAnimal){
-            String name = nameAnimalInput.getText().toString().trim();
-            String age = ageAnimalInput.getText().toString().trim();
-            String raza = razaAnimal.getText().toString().trim();
-            Intent intent = new Intent(RegisterAnimalActivity.this,InfoSuccessRegisterActivity.class);
-            intent.putExtra("nameAnimal", name);
-            intent.putExtra("ageAnimal",age);
-            intent.putExtra("razaAnimal",raza);
-            intent.putExtra("generoAnimal",genero);
-            intent.putExtra("especieAnimal",especie);
-            /*mainAnimals.getAnimalRegister();*/
-            startActivity(intent);
-            finish();
-            /*Toast.makeText(this, "especie " + especie, Toast.LENGTH_SHORT).show();*/
+            register();
         }
         if(view==btn_regresar){
             Intent intent = new Intent(RegisterAnimalActivity.this,ViewMainAnimalsActivity.class);

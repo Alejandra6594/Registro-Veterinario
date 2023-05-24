@@ -19,43 +19,33 @@
         android:paddingTop="5dp"
         android:paddingBottom="5dp">
 
-        <ImageView
-            android:id="@+id/image_animal"
-            android:layout_width="69dp"
-            android:layout_height="74dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.148"
-            app:srcCompat="@mipmap/perro" />
-
         <TextView
-            android:id="@+id/name_animal"
+            android:id="@+id/name_vacuna"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="3dp"
             android:padding="5dp"
-            android:textSize="34sp"
+            android:textSize="24sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.048"
-            app:layout_constraintStart_toEndOf="@+id/image_animal"
+            app:layout_constraintHorizontal_bias="0.077"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.526" />
+            app:layout_constraintVertical_bias="0.0" />
 
-        <Button
-            android:id="@+id/btn_details"
+        <TextView
+            android:id="@+id/date_vacuna"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            android:background="@color/teal_700"
-            android:text="DETALLES"
-            android:translationZ="1000dp"
+            android:layout_marginStart="3dp"
+            android:padding="5dp"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.816"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

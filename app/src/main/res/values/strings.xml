@@ -22,5 +22,8 @@
     <string name="users_name">Nombre de usuario</string>
     <string name="Confirmar">Confirmar contraseña</string>
     <string name="raza">Raza de tu mascota</string>
+    <string name="title_app">I LOVE MASCOT</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

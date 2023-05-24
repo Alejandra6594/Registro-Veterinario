@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/fragmentDetalles">
+
+    <fragment
+        android:id="@+id/fragmentDetalles"
+        android:name="com.example.veterinaria.FragmentDetalles"
+        android:label="fragment_detalles"
+        tools:layout="@layout/fragment_detalles" >
+        <action
+            android:id="@+id/action_fragmentDetalles_to_fragmentVacunas"
+            app:destination="@id/fragmentVacunas" />
+        <action
+            android:id="@+id/action_fragmentDetalles_to_fragmentMedicamentos"
+            app:destination="@id/fragmentMedicamentos" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentVacunas"
+        android:name="com.example.veterinaria.FragmentVacunas"
+        android:label="fragment_vacunas"
+        tools:layout="@layout/fragment_vacunas" >
+        <action
+            android:id="@+id/action_fragmentVacunas_to_fragmentDetalles"
+            app:destination="@id/fragmentDetalles" />
+        <action
+            android:id="@+id/action_fragmentVacunas_to_fragmentMedicamentos"
+            app:destination="@id/fragmentMedicamentos" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentMedicamentos"
+        android:name="com.example.veterinaria.FragmentMedicamentos"
+        android:label="fragment_medicamentos"
+        tools:layout="@layout/fragment_medicamentos" >
+        <action
+            android:id="@+id/action_fragmentMedicamentos_to_fragmentDetalles"
+            app:destination="@id/fragmentDetalles" />
+        <action
+            android:id="@+id/action_fragmentMedicamentos_to_fragmentVacunas"
+            app:destination="@id/fragmentVacunas" />
+    </fragment>
+</navigation>
